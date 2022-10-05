@@ -1,2 +1,12 @@
-<h1>Invoices#index</h1>
-<p>Find me in app/views/invoices/index.html.erb</p>
+<div class="wrapper" style="width: 100vw;
+                           text-align: center;
+                           margin-top: 50px;">
+  <% if user_signed_in? %>
+    <h1>Invoices for <%= current_user.email %></h1>
+    <% @invoices.each do |invoice| %>
+      <%= invoice.company_name %>
+    <% end %>
+  <% else %>
+    <%= link_to "Please Sign in", user_session_path %>
+  <% end %>
+</div>
