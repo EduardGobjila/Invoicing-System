@@ -3,9 +3,28 @@
                            margin-top: 50px;">
   <% if user_signed_in? %>
     <h1>Invoices for <%= current_user.email %></h1>
-    <% @invoices.each do |invoice| %>
-      <%= invoice.company_name %>
-    <% end %>
+
+    <div class="table">
+
+      <table class="wp-table">
+        <tr>
+          <th>Company</th>
+          <th>Number</th>
+          <th>Price</th>
+          <th>Card/Cash</th>
+        <tr>
+
+        <% @invoices.each do |invoice| %>
+        </tr>
+          <td><%= invoice.company_name%></td>
+          <td><%= invoice.invoice_number %></td>
+          <td><%=  invoice.price  %></td>
+          <td><%= invoice.paid_with %></td>
+        </tr>
+        <% end %>
+
+      </table> <%# end of table div %>
+    </div>
   <% else %>
     <%= link_to "Please Sign in", user_session_path %>
   <% end %>
