@@ -31,12 +31,28 @@
         <tfoot>
           <tr>
             <strong><td colspan="2">You have <%= @invoices.length %> invoices</td></strong>
-            <% sum = 0.00 %>
-            <% @invoices.each do |invoice| %>
-              <% sum += invoice.price.to_f %>
+              <% sumcard = 0 %>
+              <% @invoices.each do |invoice| %>
+              <% if invoice.paid_with === 'card' %>
+              <% sumcard += invoice.price.to_f %>
+              <% end %>
             <% end %>
-            <td>£<%= sum %></td>
-          </tr>
+
+            <td>£<%= sumcard %> total card</td>
+              <% sumcash = 0 %>
+              <% @invoices.each do |invoice| %>
+                <% if invoice.paid_with === 'cash' %>
+                 <% sumcash += invoice.price.to_f %>
+                <% end %>
+              <% end %>
+
+            <td>£<%= sumcash %> total cash</td>
+             <% sum = 0 %>
+              <% @invoices.each do |invoice| %>
+                <% sum += invoice.price.to_f %>
+              <% end %>
+            <td>£<%= sum %> total</td>
+            </tr>
         </tfoot>
       </table> <%# end of table div %>
     </div>
