@@ -9,7 +9,7 @@
       <%= link_to "See All Invoices", invoices_path, class: 'btn btn-success text-white' %>
 
         <form action = "/invoices">
-      Filters:      <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
+      Filter By Time: <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
           <option value="current">Current Week</option>
           <option value="last_week">Last Week</option>
               <option value="newest">Newest</option>
@@ -21,7 +21,7 @@
 
 
         <form action = "/invoices">
-          Companies:  <select aria-labelledby="refine-sortlabel" name="q" data-q="srp-sort">
+          Filter By Companies:  <select aria-labelledby="refine-sortlabel" name="q" data-q="srp-sort">
           <option value="Amber">Amber Bakery</option>
           <option value="RoExport">RoExport</option>
           <option value="Monolith">Monolith</option>
