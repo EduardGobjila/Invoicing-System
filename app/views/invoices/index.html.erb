@@ -11,6 +11,7 @@
 
       <table class="wp-table">
         <tr>
+          <th>Created At</th>
           <th>Company</th>
           <th>Number</th>
           <th>Price</th>
@@ -19,6 +20,7 @@
 
         <% @invoices.each do |invoice| %>
         </tr>
+          <td><%= invoice.created_at %></td>
           <td><%= invoice.company_name%></td>
           <td><%= invoice.invoice_number %></td>
           <td><%=  invoice.price  %></td>
@@ -26,7 +28,16 @@
           <%# <td><%= link_to 'Delete', invoices_path(@invoice) , data: { turbo_metho: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 1px;' %>
         </tr>
         <% end %>
-
+        <tfoot>
+          <tr>
+            <strong><td colspan="2">You have <%= @invoices.length %> invoices</td></strong>
+            <% sum = 0.00 %>
+            <% @invoices.each do |invoice| %>
+              <% sum += invoice.price.to_f %>
+            <% end %>
+            <td>£<%= sum %></td>
+          </tr>
+        </tfoot>
       </table> <%# end of table div %>
     </div>
   <% else %>

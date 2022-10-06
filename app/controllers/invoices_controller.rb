@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
 
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.all.reverse
   end
 
   def show
