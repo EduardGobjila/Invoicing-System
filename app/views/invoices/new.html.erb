@@ -4,7 +4,7 @@
   <div class="container pt-4 col-4">
     <h1>Add an Invoice</h1>
     <%= simple_form_for @invoice do |f| %>
-      <%= f.input :company_name %>
+      <%= f.input :company_name, collection: Invoice::CATEGORIES %>
       <%= f.input :invoice_number %>
       <%= f.input :price %>
       <%= f.input :paid_with %>

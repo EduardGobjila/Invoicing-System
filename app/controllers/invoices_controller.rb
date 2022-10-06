@@ -3,7 +3,9 @@ class InvoicesController < ApplicationController
   def index
     if params[:sort] == "current"
       @invoices_current_week = Invoice.all
-      @invoices = @invoices_current_week.sort_by { Date.today.beginning_of_week..Date.today.end_of_week }
+      @invoices = @invoices_current_week.sort_by do
+        Date.today.beginning_of_week..Date.today.end_of_week
+      end
     elsif params[:sort] == "last_week"
       # @invoices = ActiveRecord::Base.connection.execute(SELECT * FROM invoices WHERE id = 1)
       @invoice = Invcoice.all
@@ -13,6 +15,12 @@ class InvoicesController < ApplicationController
       @invoices = Invoice.order(created_at: :asc)
     else
       @invoices = Invoice.all.reverse
+    end
+
+    if params[:q].present?
+      @invoices = Invoice.where("company_name ILIKE ?", "%#{params[:q]}%")
+    else
+      @invcoices = Invoice.all
     end
   end
 
