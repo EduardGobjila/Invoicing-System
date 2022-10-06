@@ -5,17 +5,19 @@
     <h1>Invoices for <%= current_user.email %></h1>
 
     <div class="buttons">
-      <%= link_to "Create New", new_invoice_path %>
+      <%= link_to "Create New", new_invoice_path,  class: 'btn btn-primary text-white' %>
         <form action = "/invoices">
         <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
           <option value="current">Current Week</option>
           <option value="last_week">Last Week</option>
+              <option value="newest">Newest</option>
           <option value="oldest">Oldest to Newest</option>
         </select>
         <input type="submit" value="Submit" id="submit">
         </form>
     </div>
     <div class="table">
+    <%= Date.today.beginning_of_week..Date.today.end_of_week %>
 
       <table class="wp-table">
         <tr>
@@ -45,21 +47,21 @@
               <% sumcard += invoice.price.to_f %>
               <% end %>
             <% end %>
+            <td>£<%= sumcard.round(2) %> total card</td>
 
-            <td>£<%= sumcard %> total card</td>
               <% sumcash = 0 %>
               <% @invoices.each do |invoice| %>
                 <% if invoice.paid_with === 'cash' %>
                  <% sumcash += invoice.price.to_f %>
                 <% end %>
               <% end %>
+            <td>£<%= sumcash.round(2) %> total cash</td>
 
-            <td>£<%= sumcash %> total cash</td>
              <% sum = 0 %>
               <% @invoices.each do |invoice| %>
                 <% sum += invoice.price.to_f %>
               <% end %>
-            <td>£<%= sum %> total</td>
+            <td>£<%= sum.round(2) %> total</td>
             </tr>
         </tfoot>
       </table> <%# end of table div %>

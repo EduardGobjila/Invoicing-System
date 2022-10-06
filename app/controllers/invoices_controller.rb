@@ -2,10 +2,13 @@ class InvoicesController < ApplicationController
 
   def index
     if params[:sort] == "current"
-      today = Date.today
-      @invoices = Invoice.all.sort_by { today.at_beginning_of_week..today.at_end_of_week }
+      @invoices_current_week = Invoice.all
+      @invoices = @invoices_current_week.sort_by { Date.today.beginning_of_week..Date.today.end_of_week }
     elsif params[:sort] == "last_week"
-      @invoices = Invoice.order(:created_at)
+      # @invoices = ActiveRecord::Base.connection.execute(SELECT * FROM invoices WHERE id = 1)
+      @invoice = Invcoice.all
+    elsif params[:sort] == "newest"
+      @invoices = Invoice.order(created_at: :desc)
     elsif params[:sort] == "oldest"
       @invoices = Invoice.order(created_at: :asc)
     else
