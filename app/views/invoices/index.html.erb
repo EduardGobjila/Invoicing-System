@@ -63,7 +63,7 @@
             <strong><td colspan="2">You have <%= @invoices.length %> invoices</td></strong>
               <% sumcard = 0 %>
               <% @invoices.each do |invoice| %>
-              <% if invoice.paid_with === 'card' %>
+              <% if invoice.paid_with === 'card' || invoice.paid_with === 'Card' %>
               <% sumcard += invoice.price.to_f %>
               <% end %>
             <% end %>
@@ -71,7 +71,7 @@
 
               <% sumcash = 0 %>
               <% @invoices.each do |invoice| %>
-                <% if invoice.paid_with === 'cash' %>
+                <% if invoice.paid_with === 'cash' || invoice.paid_with === 'Cash' %>
                  <% sumcash += invoice.price.to_f %>
                 <% end %>
               <% end %>

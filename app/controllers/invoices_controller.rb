@@ -32,7 +32,6 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new(invoice_params)
     if @invoice.save
       redirect_to invoices_path(@invoice)
-      flash[:success] = "Invoice Added Successfully"
     else
       render :new, stauts: :unprocessable_entity
     end
