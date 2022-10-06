@@ -6,6 +6,14 @@
 
     <div class="buttons">
       <%= link_to "Create New", new_invoice_path %>
+        <form action = "/invoices">
+        <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
+          <option value="current">Current Week</option>
+          <option value="last_week">Last Week</option>
+          <option value="oldest">Oldest to Newest</option>
+        </select>
+        <input type="submit" value="Submit" id="submit">
+        </form>
     </div>
     <div class="table">
 
