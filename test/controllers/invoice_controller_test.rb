@@ -1,6 +1,6 @@
 require "test_helper"
 
-class InvoicesControllerTest < ActionDispatch::IntegrationTest
+class InvoiceControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
