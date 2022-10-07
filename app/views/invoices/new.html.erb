@@ -1,8 +1,9 @@
 
 <div class = "banner-new">
-
-  <div class="container pt-4 col-4">
+  <div class="create">
     <h1>Add an Invoice</h1>
+  </div>
+  <div class="container">
     <%= simple_form_for @invoice do |f| %>
       <%= f.input :company_name, collection: Invoice::CATEGORIES %>
       <%= f.input :invoice_number %>
