@@ -1,0 +1,41 @@
+
+.sign-up {
+  text-align: center;
+  margin-top: 40px;
+}
+.sign {
+  padding: 15px;
+  border-radius: 9px;
+  border: none;
+  background-color: antiquewhite;
+  width: 200px;
+  margin-bottom: 20px;
+}
+.render {
+    padding: 15px;
+    border-radius: 9px;
+    border: none;
+    background-color: #35a961;
+    text-decoration: none;
+    color: white;
+}
+.link {
+  margin: 30px auto;
+  width: 100%;
+  text-align: center;
+}
+.form-actions {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    width: 100vw;
+  }
+  .body {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

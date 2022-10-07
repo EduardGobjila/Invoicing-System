@@ -103,6 +103,9 @@
       </table> <%# end of table div %>
     </div>
   <% else %>
-    <%= link_to "Please Sign in", user_session_path %>
+    <h1>Invoicing System</h1>
+    <h3>Invoicing System Require LogIn To start Invoicing</h3>
+    <%= link_to "Please Sign in", user_session_path, class: 'btn btn-lg btn-primary text-white' %>
+
   <% end %>
 </div>
