@@ -7,8 +7,10 @@
     <div class="buttons">
       <%= link_to "Create New", new_invoice_path,  class: 'btn btn-primary text-white' %>
       <%= link_to "See All Invoices", invoices_path, class: 'btn btn-success text-white' %>
+    </div>
 
-        <form action = "/invoices">
+    <div class="filters">
+        <form action = "/invoices" class="forms">
       Filter By Time: <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
           <option value="current">Current Week</option>
           <option value="last_week">Last Week</option>
@@ -21,7 +23,7 @@
 
 
 
-        <form action = "/invoices">
+        <form action = "/invoices" class="forms">
           Filter By Companies:  <select aria-labelledby="refine-sortlabel" name="q" data-q="srp-sort">
           <option value="Amber">Amber Bakery</option>
           <option value="RoExport">RoExport</option>
