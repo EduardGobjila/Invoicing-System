@@ -12,7 +12,7 @@
       Filter By Time: <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
           <option value="current">Current Week</option>
           <option value="last_week">Last Week</option>
-          <option value="last_week">Current Month</option>
+          <option value="current_month">Current Month</option>
           <option value="newest">Newest</option>
           <option value="oldest">Oldest to Newest</option>
         </select>
@@ -52,7 +52,7 @@
         <% @invoices.each do |invoice| %>
         </tr>
           <td><%= invoice.created_at.to_date %></td>
-          <td><%= invoice.company_name%></td>
+          <td class="company_name"><%= invoice.company_name%></td>
           <td><%= invoice.invoice_number %></td>
           <td><%=  invoice.price  %></td>
           <td><%= invoice.paid_with %></td>
@@ -61,14 +61,14 @@
         <% end %>
         <tfoot>
           <tr>
-            <strong><td colspan="2">You have <%= @invoices.length %> invoices</td></strong>
+            <strong><td class="sum" colspan="2">You have <%= @invoices.length %> invoices</td></strong>
               <% sumcard = 0 %>
               <% @invoices.each do |invoice| %>
               <% if invoice.paid_with === 'card' || invoice.paid_with === 'Card' %>
               <% sumcard += invoice.price.to_f %>
               <% end %>
             <% end %>
-            <td>£<%= sumcard.round(2) %> total card</td>
+            <td class="sum">£<%= sumcard.round(2) %> total card</td>
 
               <% sumcash = 0 %>
               <% @invoices.each do |invoice| %>
@@ -76,13 +76,13 @@
                  <% sumcash += invoice.price.to_f %>
                 <% end %>
               <% end %>
-            <td>£<%= sumcash.round(2) %> total cash</td>
+            <td class="sum">£<%= sumcash.round(2) %> total cash</td>
 
              <% sum = 0 %>
               <% @invoices.each do |invoice| %>
                 <% sum += invoice.price.to_f %>
               <% end %>
-            <td>£<%= sum.round(2) %> total</td>
+            <td class="sum">£<%= sum.round(2) %> total</td>
             </tr>
         </tfoot>
       </table> <%# end of table div %>
