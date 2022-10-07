@@ -55,3 +55,19 @@
 .forms {
   margin: 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .wp-table {
+    width: 80%;
+  }
+  .wp-table th:first-child,
+.wp-table td:first-child {
+  padding-left: 0;
+}
+  .wp-table {
+    font-size: 11px!important;
+    border-spacing: 0;
+    width: 96%;
+  }
+
+}
