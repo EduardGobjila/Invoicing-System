@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
     # elsif params[:sort] == "oldest"
     #   @invoices = Invoice.order(created_at: :desc)
     else
-      @invoices = Invoice.all.reverse
+      @invoices = Invoice.all
     end
 
     if params[:q].present?
