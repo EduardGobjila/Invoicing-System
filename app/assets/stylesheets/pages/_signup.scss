@@ -7,7 +7,8 @@
   padding: 15px;
   border-radius: 9px;
   border: none;
-  background-color: antiquewhite;
+  background-color:#35a961;
+  color: white;
   width: 200px;
   margin-bottom: 20px;
 }
@@ -15,20 +16,25 @@
     padding: 15px;
     border-radius: 9px;
     border: none;
-    background-color: #35a961;
+    background-color: rgb(247, 200, 138);
     text-decoration: none;
     color: white;
-}
-.link {
-  margin: 30px auto;
-  width: 100%;
-  text-align: center;
+    width: 200px;
 }
 .form-actions {
   margin: 0 auto;
   width: 100%;
   text-align: center;
 }
+.forgot {
+  padding: 15px;
+  border-radius: 9px;
+  border: none;
+  background-color: rgb(124, 124, 255);
+  text-decoration: none;
+  color: white;
+}
+
 
 @media screen and (max-width: 600px) {
   .wrapper {
@@ -37,5 +43,17 @@
   .body {
     width: 80%;
     margin: 0 auto;
+  }
+  .link {
+    margin: 30px auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+  }
+  .forgot-wrapp {
+    margin-top: 50px;
+  }
+  .sign-link {
+    width: 80%;
   }
 }
