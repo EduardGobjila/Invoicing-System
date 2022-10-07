@@ -4,6 +4,7 @@ class Invoice < ApplicationRecord
   # belongs_to :user
 
   CATEGORIES = ['Amber Bakery', 'RoExport', 'Monolith', 'Lithuanian Beer', 'Asorti Food', 'Marion', 'Cake World', 'Cypro Food',
-                 'Imperial', 'Sitella Fruits', 'Ambassador Bakery', 'Dancle Romanian' ].sort
+                 'Imperial', 'Sitella Fruits', 'Ambassador Bakery', 'Dancle Romanian', 'Noble Wine', 'Baltic Foods', 'Ulan',
+                'Lackmann', 'Leon', 'Bills', 'Holland Bazar', 'Tahtakale', 'Rambynas', 'Salary', 'Import', 'Other' ].sort
   PAID = ["Card", "Cash"]
 end

@@ -7,10 +7,12 @@ class InvoicesController < ApplicationController
       @invoices = Invoice.where("created_at >= ? and created_at <= ?", DateTime.now.beginning_of_week - 7, DateTime.now.end_of_week - 7)
     elsif params[:sort] == "current_month"
       @invoices =  Invoice.where("created_at >= ? and created_at <= ?", DateTime.now.beginning_of_month, DateTime.now.end_of_month)
+    elsif params[:sort] == "last_month"
+      @invoices =  Invoice.where("created_at >= ? and created_at <= ?", DateTime.now.beginning_of_month.prev_month , DateTime.now.end_of_month.prev_month )
     elsif params[:sort] == "newest"
       @invoices = Invoice.order(created_at: :desc)
-    elsif params[:sort] == "oldest"
-      @invoices = Invoice.order(created_at: :asc)
+    # elsif params[:sort] == "oldest"
+    #   @invoices = Invoice.order(created_at: :desc)
     else
       @invoices = Invoice.all.reverse
     end
