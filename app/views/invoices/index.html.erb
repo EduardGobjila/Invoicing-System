@@ -116,7 +116,9 @@
                   <% sum += invoice.price.to_f %>
                 <% end %>
               <% end %>
-              <td class="sum">£<%= sum.round(2) %> total</td>
+              <% if current_user.id == invoice.users_id %>
+                <td class="sum">£<%= sum.round(2) %> total</td>
+              <% end %>
             </tr>
         </tfoot>
       </table> <%# end of table div %>
