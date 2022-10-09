@@ -42,6 +42,16 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def edit
+    @invoice = Invoice.find(params[:id])
+  end
+
+  def update
+    @invoice = Invoice.find(params[:id])
+    @invoice.update
+    redirect_to invoices_path
+  end
+
   def destroy
     @invoice = Invoice.find(params[:id])
     @invoice.destroy

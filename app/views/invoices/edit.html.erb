@@ -1,0 +1,18 @@
+
+
+
+<div class = "banner-new">
+  <div class="create">
+    <h1>Edit an Invoice</h1>
+  </div>
+  <div class="container">
+    <%= simple_form_for @invoice do |f| %>
+      <%= f.input :company_name, collection: Invoice::CATEGORIES %>
+      <%= f.input :invoice_number %>
+      <%= f.input :price %>
+      <%= f.input :paid_with, collection: Invoice::PAID %>
+      <%= f.submit "Add Invoice", class: 'btn btn-primary text-white' %>
+      <%= link_to "Back to Main page", invoices_path, class: 'btn btn-danger text-white', style: 'margin: 10px;'  %>
+    <% end %>
+  </div>
+</div>

@@ -73,16 +73,16 @@
           <th>Number</th>
           <th>Price</th>
           <th>Card/Cash</th>
+          <th> - -</th>
         <tr>
 
         <% @invoices.each do |invoice| %>
         </tr>
           <td><%= invoice.created_at.to_date %></td>
-          <td class="company_name"><%= invoice.company_name%></td>
+          <td class="company_name"><%= link_to invoice.company_name, invoice_path(invoice) %></td>
           <td><%= invoice.invoice_number %></td>
           <td><%=  invoice.price  %></td>
           <td><%= invoice.paid_with %></td>
-          <%# <td><%= link_to 'Delete', invoices_path(@invoice) , data: { turbo_metho: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 1px;' %>
         </tr>
         <% end %>
         <tfoot>
