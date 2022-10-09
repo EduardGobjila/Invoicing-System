@@ -89,10 +89,10 @@
 
         <tfoot>
           <tr>
-            <strong><td class="sum" colspan="2">You have <%= @invoices.length %> invoices</td></strong>
               <% sumcard = 0 %>
               <% @invoices.each do |invoice| %>
                 <% if current_user.id == invoice.users_id %>
+            <strong><td class="sum" colspan="2">You have <%= invoice.length %> invoices</td></strong>
                   <% if invoice.paid_with === 'card' || invoice.paid_with === 'Card' %>
                   <% sumcard += invoice.price.to_f %>
                   <% end %>
@@ -115,13 +115,9 @@
                 <% if current_user.id == invoice.users_id %>
                   <% sum += invoice.price.to_f %>
                 <% end %>
+                <td class="sum">£<%= sum.round(2) %> total</td>
               <% end %>
 
-              <% @invoices.each do |invoice| %>
-               <% if current_user.id == invoice.users_id %>
-                  <td class="sum">£<%= sum.round(2) %> total</td>
-                <% end %>
-              <% end %>
             </tr>
         </tfoot>
       </table> <%# end of table div %>
