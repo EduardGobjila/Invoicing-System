@@ -73,14 +73,13 @@
           <th>Number</th>
           <th>Price</th>
           <th>Card/Cash</th>
-          <th> - -</th>
         <tr>
 
         <% @invoices.each do |invoice| %>
         </tr>
           <td><%= invoice.created_at.to_date %></td>
-          <td class="company_name"><%= link_to invoice.company_name, invoice_path(invoice) %></td>
-          <td><%= invoice.invoice_number %></td>
+          <td class="company_name"><%= link_to invoice.company_name, invoice_path(invoice), class: "name" %></td>
+          <td><%= invoice.invoice_number.upcase %></td>
           <td><%=  invoice.price  %></td>
           <td><%= invoice.paid_with %></td>
         </tr>

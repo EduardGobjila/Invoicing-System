@@ -10,5 +10,6 @@
     <p>Paid in: <%= @invoice.paid_with %></p>
     <%= link_to "Edit", edit_invoice_path,  class: "btn btn-success text-white" %>
     <%= link_to "Delete", invoice_path(@invoice), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },  class: "btn btn-danger text-white" %>
+    <%= link_to 'Main Page', invoices_path, class: "btn btn-primary text-white" %>
   </div>
 </div>

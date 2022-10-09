@@ -5,6 +5,11 @@
 @import "logo";
 @import "show";
 
+
+.name {
+  text-decoration: none;
+  color: black;
+}
 .wp-table tr:nth-child(odd) {
   background-color: #fff;
 }
