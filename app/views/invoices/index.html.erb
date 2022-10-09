@@ -76,7 +76,7 @@
         <tr>
 
           <% @invoices.each do |invoice| %>
-             <% if current_user.id === invoice.user_id %>
+             <% if current_user.id == invoice.user_id %>
             </tr>
               <td><%= invoice.created_at.to_date %></td>
               <td class="company_name"><%= link_to invoice.company_name, invoice_path(invoice), class: "name" %></td>
