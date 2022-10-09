@@ -1,6 +1,14 @@
 
 <div class="wrapper-show">
+  <div class="show-header">
+    <h1>Company name: <%= @invoice.company_name %></h1>
+    <h3>Invoice ready to Edited or Deleted.</h3>
+  </div>
   <div class="show-body">
-    <h1><%= @invoice.company_name %></h1>
+    <p>Invoice Number: <%= @invoice.invoice_number %></p>
+    <p>Invoice Price: <%= @invoice.price %></p>
+    <p>Paid in: <%= @invoice.paid_with %></p>
+    <%= link_to "Edit", edit_invoice_path,  class: "btn btn-success text-white" %>
+    <%= link_to "Delete", invoice_path(@invoice), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },  class: "btn btn-danger text-white" %>
   </div>
 </div>

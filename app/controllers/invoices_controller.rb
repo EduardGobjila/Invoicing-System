@@ -48,8 +48,8 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.find(params[:id])
-    @invoice.update
-    redirect_to invoices_path
+    @invoice.update(invoice_params)
+    redirect_to invoice_path(@invoice)
   end
 
   def destroy
