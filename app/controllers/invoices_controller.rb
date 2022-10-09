@@ -24,7 +24,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @user_id = @invoice.user_id
+    # @user_id = @invoice.user_id
     @user = User.find(@user_id)
   end
 
