@@ -112,7 +112,7 @@
 
              <% sum = 0 %>
               <% @invoices.each do |invoice| %>
-                <% if current_user.id == invoice.user_id %>
+                <% if current_user.id == invoice.users_id %>
                   <% sum += invoice.price.to_f %>
                 <% end %>
               <% end %>
