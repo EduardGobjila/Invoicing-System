@@ -120,7 +120,7 @@
               <% @invoices.each do |invoice| %>
                <% if current_user.id == invoice.users_id %>
                   <td class="sum">£<%= sum.round(2) %> total</td>
-                <% end %>`
+                <% end %>
               <% end %>
             </tr>
         </tfoot>
