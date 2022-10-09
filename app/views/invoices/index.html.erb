@@ -92,7 +92,7 @@
             <strong><td class="sum" colspan="2">You have <%= @invoices.length %> invoices</td></strong>
               <% sumcard = 0 %>
               <% @invoices.each do |invoice| %>
-                <% if current_user.id == invoice.user_id %>
+                <% if current_user.id == invoice.users_id %>
                   <% if invoice.paid_with === 'card' || invoice.paid_with === 'Card' %>
                   <% sumcard += invoice.price.to_f %>
                   <% end %>
@@ -102,7 +102,7 @@
 
               <% sumcash = 0 %>
               <% @invoices.each do |invoice| %>
-                <% if current_user.id == invoice.user_id %>
+                <% if current_user.id == invoice.users_id %>
                   <% if invoice.paid_with === 'cash' || invoice.paid_with === 'Cash' %>
                   <% sumcash += invoice.price.to_f %>
                   <% end %>
