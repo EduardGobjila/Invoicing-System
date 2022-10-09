@@ -76,7 +76,7 @@
         <tr>
 
           <% @invoices.each do |invoice| %>
-             <%# <% if current_user.id == invoice.user_id %>
+             <%# if current_user.id == invoice.user_id %>
             </tr>
               <td><%= invoice.created_at.to_date %></td>
               <td class="company_name"><%= link_to invoice.company_name, invoice_path(invoice), class: "name" %></td>
@@ -89,10 +89,10 @@
 
         <tfoot>
           <tr>
+            <strong><td class="sum" colspan="2">You have <%= @invoices.length %> invoices</td></strong>
               <% sumcard = 0 %>
               <% @invoices.each do |invoice| %>
-                <%# <% if current_user.id == invoice.user_id %>
-            <strong><td class="sum" colspan="2">You have <%= invoice.length %> invoices</td></strong>
+                <%# if current_user.id == invoice.user_id %>
                   <% if invoice.paid_with === 'card' || invoice.paid_with === 'Card' %>
                   <% sumcard += invoice.price.to_f %>
                   <% end %>
@@ -102,7 +102,7 @@
 
               <% sumcash = 0 %>
               <% @invoices.each do |invoice| %>
-                <%# <% if current_user.id == invoice.user_id %>
+                <%# if current_user.id == invoice.user_id %>
                   <% if invoice.paid_with === 'cash' || invoice.paid_with === 'Cash' %>
                   <% sumcash += invoice.price.to_f %>
                   <% end %>
