@@ -34,7 +34,6 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new(invoice_params)
-    @invoice.user = current_user
     # @invoice.user = current_user
     if @invoice.save
       redirect_to invoices_path(@invoice)
