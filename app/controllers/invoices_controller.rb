@@ -24,8 +24,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    # @user_id = @invoice.user_id
-    @user = User.find(@user_id)
+    # @user = User.find(@user_id)
   end
 
   def new
@@ -34,7 +33,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = Invoice.new(invoice_params)
-    # @invoice.user = current_user
+    @invoice.user = current_user
     if @invoice.save
       redirect_to invoices_path(@invoice)
     else
