@@ -76,7 +76,7 @@
         <tr>
 
           <% @invoices.each do |invoice| %>
-             <%# if current_user.id == invoice.users_id %>
+             <% if current_user.id == invoice.user_id %>
             </tr>
               <td><%= invoice.created_at.to_date %></td>
               <td class="company_name"><%= link_to invoice.company_name, invoice_path(invoice), class: "name" %></td>
@@ -84,7 +84,7 @@
               <td><%=  invoice.price  %></td>
               <td><%= invoice.paid_with %></td>
             </tr>
-            <%# end %>
+            <% end %>
           <% end %>
 
         <tfoot>
@@ -92,30 +92,30 @@
               <% sumcard = 0 %>
                 <%# <strong><td class="sum" colspan="2">You have <%= @invoices.length invoices</td></strong> %>
               <% @invoices.each do |invoice| %>
-                <%# if current_user.id == invoice.users_id %>
+                <% if current_user.id == invoice.user_id %>
                   <% if invoice.paid_with === 'card' || invoice.paid_with === 'Card' %>
                   <% sumcard += invoice.price.to_f %>
                   <% end %>
-                <%# end %>
+                <% end %>
             <% end %>
             <td class="sum" colspan="2">£<%= sumcard.round(2) %> total card</td>
 
               <% sumcash = 0 %>
               <% @invoices.each do |invoice| %>
-                <%# if current_user.id == invoice.users_id %>
+                <% if current_user.id == invoice.user_id %>
                   <% if invoice.paid_with === 'cash' || invoice.paid_with === 'Cash' %>
                   <% sumcash += invoice.price.to_f %>
                   <% end %>
-                <%# end %>
+                <% end %>
               <% end %>
             <td class="sum">£<%= sumcash.round(2) %> total cash</td>
 
              <% sum = 0 %>
               <% @invoices.each do |invoice| %>
-                <%# if current_user.id == invoice.users_id %>
+                <% if current_user.id == invoice.user_id %>
                   <% sum += invoice.price.to_f %>
                 <% end %>
-              <%# end %>
+              <% end %>
                 <td class="sum" colspan="2">£<%= sum.round(2) %> total</td>
 
             </tr>
