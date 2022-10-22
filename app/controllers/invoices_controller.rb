@@ -54,7 +54,7 @@ class InvoicesController < ApplicationController
   def destroy
     @invoice = Invoice.find(params[:id])
     @invoice.destroy
-    redirect_to invoices_path, notice: 'Post was successfully destroyed.', status: :see_other
+    redirect_to invoices_path, notice: 'Post was successfully deleted.', status: :see_other
   end
 
   private
